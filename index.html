@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arjumand Labs | Command Center</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="bento-container">
+        
+        <div class="card logo-card">
+            <img src="assets/Logo.png" alt="AL Logo" class="logo-img"> 
+        </div>
+
+        <div class="card header-card">
+            <h2 class="glitch" data-text="ARJUMANDLABS">ARJUMANDLABS</h2>
+            <p>UI Experiments & Code</p>
+        </div>
+
+        <a href="https://instagram.com/arjumandlabs" target="_blank" class="card social-card insta">
+            <i class="fa-brands fa-instagram"></i>
+            <span>FOLLOW</span>
+        </a>
+
+        <a href="https://github.com/yourusername" target="_blank" class="card social-card git">
+            <i class="fa-brands fa-github"></i>
+            <span>CODE</span>
+        </a>
+
+        <div class="card map-card">
+            <div class="map-overlay">
+                <h3>LOCATION:</h3>
+                <p>Kuala Lumpur, Malaysia</p>
+            </div>
+            <img src="assets/Map.png" alt="Map Location" class="map-img">
+        </div>
+
+        <div class="card avail-card">
+            <span>AVAILABILITY:</span>
+            <div class="status-pill">
+                <span class="dot"></span> Open for Projects
+            </div>
+        </div>
+
+        <div class="card stack-card">
+            <i class="fa-brands fa-html5" style="color: #E34F26;"></i>
+            <i class="fa-brands fa-css3-alt" style="color: #1572B6;"></i>
+            <i class="fa-brands fa-js" style="color: #F7DF1E;"></i>
+            <i class="fa-brands fa-react" style="color: #61DAFB;"></i> 
+            <i class="fa-brands fa-google" style="color: #FFCA28;"></i> 
+            <i class="fa-brands fa-figma" style="color: #F24E1E;"></i>
+            <i class="fa-solid fa-bezier-curve" style="color: #cf5d00;"></i>
+        </div>
+
+        <div class="card services-card">
+            <h3>SERVICES</h3>
+            <div class="service-list">
+                <div class="service-item">Flutter Development</div>
+                <div class="service-item">UI/UX Design</div>
+                <div class="service-item">Web Architecture</div>
+                <div class="service-item">Consulting</div>
+            </div>
+        </div>
+
+        <div class="card music-card">
+            <audio id="audio-player" src="https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf87a.mp3" loop></audio>
+
+            <div class="music-left">
+                <div class="album-art-container">
+                    <img src="assets/Music.png" alt="Album Art" class="album-art-img">
+                </div>
+
+                <div class="visualizer-container">
+                    <div class="bar"></div> <div class="bar"></div> <div class="bar"></div>
+                    <div class="bar"></div> <div class="bar"></div> <div class="bar"></div>
+                </div>
+            </div>
+            
+            <div class="music-info">
+                <div class="track-details">
+                    <span class="song-title">Coding Session</span>
+                    <span class="artist-name">Lofi Ghostie</span>
+                </div>
+                <div class="controls">
+                    <i class="fa-solid fa-backward-step"></i>
+                    <div class="play-btn-circle" onclick="toggleMusic()">
+                        <i class="fa-solid fa-play" id="play-icon"></i>
+                    </div>
+                    <i class="fa-solid fa-forward-step"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="card gear-card">
+            <div class="gear-text">
+                <span>MY GEAR:</span>
+                <p class="small-text">MacBook Air M3, VS Code, Coffee...</p>
+            </div>
+            <div class="gear-icons">
+                <i class="fa-solid fa-laptop"></i>
+                <i class="fa-solid fa-code"></i>
+                <i class="fa-solid fa-mug-hot"></i>
+            </div>
+        </div>
+
+        <div class="card time-card">
+            <div class="time-icon-area">
+                <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="time-text-area">
+                <h2 id="clock">00:00:00</h2>
+                <p>(GMT +8)</p>
+            </div>
+        </div>
+
+        <div class="card project-card">
+            <div class="project-details">
+                <div class="project-title-group">
+                    <h3>Project:</h3>
+                    <p class="proj-name">FocusSync</p>
+                </div>
+                <div class="proj-status">
+                    <span class="badge">In Development</span>
+                </div>
+            </div>
+            <div class="project-image-container">
+                <img src="assets/Project.png" alt="Project Mockup" class="proj-img">
+            </div>
+        </div>
+
+        <a href="mailto:arjumandlabs@gmail.com" class="card cta-card">
+            <h3>HAVE AN IDEA? LET'S BUILD IT.</h3>
+            <div class="btn">EMAIL ME ↗</div>
+        </a>
+
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script>
+        // 1. Initialize 3D Tilt
+        VanillaTilt.init(document.querySelectorAll(".card"), {
+            max: 5, speed: 400, glare: true, "max-glare": 0.2, scale: 1.02
+        });
+
+        // 2. Clock
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { hour12: true });
+            document.getElementById('clock').textContent = timeString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // 3. Music Player
+        function toggleMusic() {
+            const audio = document.getElementById('audio-player');
+            const icon = document.getElementById('play-icon');
+            const bars = document.querySelectorAll('.bar');
+            const container = document.querySelector('.music-card');
+
+            if (audio.paused) {
+                audio.play();
+                icon.classList.remove('fa-play');
+                icon.classList.add('fa-pause');
+                container.classList.add('playing');
+                bars.forEach(bar => bar.style.animationPlayState = 'running');
+            } else {
+                audio.pause();
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+                container.classList.remove('playing');
+                bars.forEach(bar => bar.style.animationPlayState = 'paused');
+            }
+        }
+    </script>
+</body>
+</html>
